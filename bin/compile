@@ -9,6 +9,13 @@ BUILD_DIR=$1
 VENDOR_DIR="vendor"
 DOWNLOAD_URL="https://www.johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz"
 
+# allow app to override download url with env var
+if [ -d "$ENV_DIR" ]; then
+  if [ -e "$ENV_DIR/FFMPEG_DOWNLOAD_URL" ]; then
+    DOWNLOAD_URL="$(cat $ENV_DIR/FFMPEG_DOWNLOAD_URL)"
+  fi
+fi
+
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
 cd $BUILD_DIR
