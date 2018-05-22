@@ -6,6 +6,7 @@ indent() {
 
 echo "-----> Install ffmpeg"
 BUILD_DIR=$1
+ENV_DIR=$3
 VENDOR_DIR="vendor"
 DOWNLOAD_URL="https://www.johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz"
 
